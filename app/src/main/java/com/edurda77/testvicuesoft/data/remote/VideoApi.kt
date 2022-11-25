@@ -6,5 +6,5 @@ interface VideoApi {
 
     @GET("api/backgrounds/?group=video&category_id=1")
     suspend fun getVideoData(
-    ): VideoDTO
+    ): List<VideoDTOItem>
 }
