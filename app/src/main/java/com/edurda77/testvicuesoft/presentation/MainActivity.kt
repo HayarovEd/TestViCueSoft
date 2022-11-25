@@ -1,5 +1,6 @@
 package com.edurda77.testvicuesoft.presentation
 
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -47,12 +48,17 @@ class MainActivity : AppCompatActivity() {
 
     private fun initRecyclerView(data: List<VideoData>) {
         val recyclerView: RecyclerView = binding.posterRv
+        val videoView = binding.playerVw
         recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager
             .HORIZONTAL, false)
         val stateClickListener: VideoAdapter.OnStateClickListener =
             object : VideoAdapter.OnStateClickListener {
                 override fun onStateClick(item: VideoData, position: Int) {
-                    //Todo
+                    videoView.setVideoURI(Uri.parse(item.videoUrl))
+                    videoView.start()
+                    videoView.setOnCompletionListener {
+                        videoView.start()
+                    }
                 }
             }
         recyclerView.adapter = VideoAdapter(data,stateClickListener)

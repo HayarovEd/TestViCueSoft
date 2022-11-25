@@ -16,34 +16,41 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/frame"
         android:layout_width="match_parent"
         android:layout_height="208dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
+        app:cardCornerRadius="16dp"
         android:background="@drawable/video_window"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-            
-        <VideoView
-            android:id="@+id/player_vw"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
-        
-        <EditText
-            android:id="@+id/enter_text"
-            android:layout_width="120dp"
-            android:layout_height="35dp"
-            android:visibility="gone"
-            android:textColor="@color/edit_color"
-            android:background="@android:color/transparent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <VideoView
+                android:id="@+id/player_vw"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <EditText
+                android:id="@+id/enter_text"
+                android:layout_width="120dp"
+                android:layout_height="35dp"
+                android:background="@android:color/transparent"
+                android:textColor="@color/edit_color"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/show_edit"
