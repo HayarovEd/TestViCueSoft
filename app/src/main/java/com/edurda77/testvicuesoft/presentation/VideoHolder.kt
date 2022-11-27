@@ -12,5 +12,6 @@ class VideoHolder(private val binding: ItemPosterRvBinding) :
         Glide.with(this.itemView.context)
             .load(item.posterUrl)
             .into(binding.posterIv)
+
     }
 }

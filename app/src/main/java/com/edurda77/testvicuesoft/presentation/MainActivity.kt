@@ -1,16 +1,17 @@
 package com.edurda77.testvicuesoft.presentation
 
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.edurda77.testvicuesoft.databinding.ActivityMainBinding
 import com.edurda77.testvicuesoft.domain.video.VideoData
 import dagger.hilt.android.AndroidEntryPoint
+
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -37,13 +38,17 @@ class MainActivity : AppCompatActivity() {
                     Toast.makeText(this, it.error, Toast.LENGTH_LONG).show()
                 }
                 is StateMainActivity.Success -> {
-                    binding.progressBar.isVisible=false
-                    binding.frame.isVisible=true
-                    binding.posterRv.isVisible=true
+                    binding.progressBar.isVisible = false
+                    binding.frame.isVisible = true
+                    binding.posterRv.isVisible = true
                     initRecyclerView(it.data)
                 }
             }
         }
+        binding.showEdit.setOnClickListener {
+            binding.frameEdit.isVisible = true
+        }
+        MoveView(binding.frameLayout).moveItem(binding.frameEdit)
     }
 
     private fun initRecyclerView(data: List<VideoData>) {

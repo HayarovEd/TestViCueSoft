@@ -7,7 +7,7 @@ import com.edurda77.testvicuesoft.domain.utils.Resource
 import com.edurda77.testvicuesoft.domain.video.VideoData
 import javax.inject.Inject
 
-class VideoRepositoryImpl @Inject constructor(val api: VideoApi) : VideoRepository{
+class VideoRepositoryImpl @Inject constructor(private val api: VideoApi) : VideoRepository{
     override suspend fun getVideoData(): Resource<List<VideoData>> {
         return try {
             Resource.Success(
