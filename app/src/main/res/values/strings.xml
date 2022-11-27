@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">TestViCueSoft</string>
+    <string name="content_edit_text">Test</string>
+    <string name="name_button">TEXT</string>
 </resources>
